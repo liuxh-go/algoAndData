@@ -1,11 +1,17 @@
 package sort
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
-func printSlice(data []int) {
+func printSlice(data []int, printFunc func(format string, args ...interface{})) {
+	dataStrSlice := make([]string, 0, len(data))
 	for _, num := range data {
-		fmt.Printf("%d -> ", num)
+		dataStrSlice = append(dataStrSlice, fmt.Sprintf("%d", num))
 	}
+
+	printFunc(strings.Join(dataStrSlice, "->"))
 }
 
 func sorted(data []int) bool {

@@ -30,8 +30,8 @@ func (this *Bubble) Sort() {
 	}
 }
 
-func (this *Bubble) Print() {
-	printSlice(this.data)
+func (this *Bubble) Print(printFunc func(format string, args ...interface{})) {
+	printSlice(this.data, printFunc)
 }
 
 func (this *Bubble) Sorted() bool {

@@ -2,22 +2,34 @@ package sort
 
 import (
 	"testing"
+
+	"wshhz.com/algoAndData/algo/other"
+)
+
+const (
+	sliceLength = 10
 )
 
 var (
-	data = []int{1, 970, 10, 42, 50, 25, 20, 10, 6, 4, 5, 9, 24, 0, 12, 29, 38, 3, 49}
+	data = other.RandSlice(sliceLength)
 )
 
 func Test_Sort(t *testing.T) {
 	//sorter := &Bubble{}
-	sorter := &Select{}
+	//sorter := &Select{}
+	//sorter := &Quick{}
+	//sorter := &Insert{}
+	sorter := &Hill{}
 	sort(sorter, t)
 }
 
 func sort(sorter Sorter, t *testing.T) {
 	sorter.Init(append([]int{}, data...))
+	t.Logf("Before Sort Data: ")
+	sorter.Print(t.Logf)
 	sorter.Sort()
-	sorter.Print()
+	t.Logf("After Sort Data: ")
+	sorter.Print(t.Logf)
 	if sorter.Sorted() {
 		t.Log(sorter.Name() + " Sort Success!")
 	} else {

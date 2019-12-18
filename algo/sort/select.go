@@ -33,8 +33,8 @@ func (this *Select) Sort() {
 	}
 }
 
-func (this *Select) Print() {
-	printSlice(this.data)
+func (this *Select) Print(printFunc func(format string, args ...interface{})) {
+	printSlice(this.data, printFunc)
 }
 
 func (this *Select) Sorted() bool {
