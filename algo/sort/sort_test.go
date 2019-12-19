@@ -19,7 +19,9 @@ func Test_Sort(t *testing.T) {
 	//sorter := &Select{}
 	//sorter := &Quick{}
 	//sorter := &Insert{}
-	sorter := &Hill{}
+	//sorter := &Hill{}
+	//sorter := &Heap{}
+	sorter := &Merge{}
 	sort(sorter, t)
 }
 
